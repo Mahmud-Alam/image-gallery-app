@@ -2,3 +2,21 @@ img{
   width: 100px;
   height: 100px;
 }
+
+.add-images-label{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted black;
+  border-radius: 20px;
+  width: 10rem;
+  height: 10rem;
+  cursor: pointer;
+  font-size: large;
+}
+
+.add-images-input{
+  display: none;
+}
