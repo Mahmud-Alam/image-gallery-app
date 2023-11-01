@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useState } from "react";
-import l from './data/img/image-1.webp'
 import { data } from "./data/data";
 import { closestCenter, DndContext } from "@dnd-kit/core";
 import {
@@ -27,7 +26,8 @@ const SortableImg = ({ img }) => {
       {...listeners}
       className="img"
     >
-      <img src={`${img.path}`} alt=""/>
+      {img.name}
+      <img src={img.path} alt=""/>
     </div>
   );
 };
