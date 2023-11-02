@@ -5,6 +5,7 @@ import { closestCenter, DndContext } from "@dnd-kit/core";
 import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
+// SortableImg function sort images using their id
 const SortableImg = ({ img, firstImg }) => {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: img.id });
   const style = {
@@ -12,6 +13,7 @@ const SortableImg = ({ img, firstImg }) => {
     transform: CSS.Transform.toString(transform),
   };
 
+  // Select first child image to give it a custom class name for specific size
   let cName = "";
   if (img.id === firstImg) {
     cName = "firstImg-size";
@@ -20,8 +22,10 @@ const SortableImg = ({ img, firstImg }) => {
   }
 
   return (
+    // Single image section with checkbox input
     <section ref={setNodeRef} style={style} {...attributes} {...listeners} className={cName}>
       <div className="img-div">
+        {/* Image path come from Data.js file */}
         <img src={img.path} alt="" />
         <input className="img-checkbox" type="checkbox" name="checkbox" id="checkbox"/>
       </div>
@@ -30,7 +34,10 @@ const SortableImg = ({ img, firstImg }) => {
 };
 
 const App = () => {
+  // This image state import saved images id and path data
   const [images, setImages] = useState(data);
+
+  // This addImg function takes an uploaded image, generate an id, make an URL and push both of them in the existing image state
   const addImg = (e) => {
     const selectedImg = e.target.files;
     const path = URL.createObjectURL(selectedImg[0]);
@@ -42,6 +49,7 @@ const App = () => {
     setImages((images) => [...images, newImg]);
   };
 
+  // onDragEnd function implement the drag and drop functionality
   const onDragEnd = (event) => {
     const { active, over } = event;
     if (active.id === over.id) {
@@ -63,6 +71,7 @@ const App = () => {
         <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
           <SortableContext items={images} strategy={verticalListSortingStrategy}>
             {
+              // map function send every images data in sortableImg for sorting
               images.map((img) => (
                 <SortableImg key={img.id} img={img} firstImg={firstImg} />
               ))
@@ -70,6 +79,7 @@ const App = () => {
           </SortableContext>
         </DndContext>
 
+        {/* This input section upload new images */}
         <label className="add-images-label img-size">
           <img src="img/icon.jpg" alt="" />
           Add Images
