@@ -1,22 +1,157 @@
-img{
-  width: 100px;
-  height: 100px;
+body {
+  padding: 0;
+  margin: 0;
 }
 
-.add-images-label{
-  margin: 0 auto;
+.container {
+  margin: 20px 300px;
+}
+
+.text-div {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 1.5rem 0;
+  margin: 0 2rem;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.firstImg-size {
+  margin: 20px;
+  width: 440px;
+  height: 440px;
+  float: left;
+}
+
+.img-size {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+
+.img-div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+
+.img-div:hover {
+  opacity: 0.5;
+}
+
+.img-div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.img-checkbox {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.img-grid-section {
+  padding: 10px;
+}
+
+.add-images-label {
+  color: #666;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px dotted black;
-  border-radius: 20px;
-  width: 10rem;
-  height: 10rem;
+  border: 1px dotted #666;
+  border-radius: 10px;
   cursor: pointer;
   font-size: large;
+  font-weight: bold;
+  background: rgb(240, 240, 240);
 }
 
-.add-images-input{
+.add-images-label img {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+.add-images-input {
   display: none;
+}
+
+@media only screen and (max-width: 1840px) {
+  .container {
+    margin: 20px 200px;
+  }
+}
+
+@media only screen and (max-width: 1640px) {
+  .container {
+    margin: 20px 100px;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .container {
+    margin: 20px 50px;
+  }
+}
+
+@media only screen and (max-width: 1340px) {
+  .container {
+    margin: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .firstImg-size {
+    width: 380px;
+    height: 380px;
+  }
+
+  .img-size {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .container {
+    margin: 10px 10px;
+  }
+
+  .firstImg-size {
+    width: 320px;
+    height: 320px;
+  }
+
+  .img-size {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    margin: 5px 5px;
+  }
+
+  .firstImg-size {
+    width: 280px;
+    height: 280px;
+  }
+
+  .img-size {
+    width: 120px;
+    height: 120px;
+  }
 }
